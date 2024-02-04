@@ -5,6 +5,7 @@ export const { routes, useSafeParams, useSafeSearchParams } = createNavigationCo
   (defineRoute) => ({
     home: defineRoute('/'),
     dashboard: defineRoute("/dashboard"),
+    pricing: defineRoute("/pricing"),
     signup: defineRoute("/auth/sign-up"),
     login: defineRoute("/auth/log-in")
   }),

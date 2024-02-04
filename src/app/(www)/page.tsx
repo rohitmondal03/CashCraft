@@ -1,8 +1,7 @@
 import { routes } from "~/lib/route-config";
 import { DotBackground } from "~/components/backgrounds/dot-bg";
 import { Features } from "./_components/features";
-import { TextGenerateEffect } from "~/components/ui/text-generate-effect";
-import { SparklesCore } from "~/components/ui/sparkles";
+import { FunctionSection } from "./_components/functioning-section";
 
 
 export default function HomePage() {
@@ -19,8 +18,7 @@ export default function HomePage() {
           </p>
         </div>
 
-
-        <div className="space-y-4">
+        <div>
           <h1 className="text-2xl font-bold">
             Why CashCraft?
           </h1>
@@ -32,6 +30,7 @@ export default function HomePage() {
           <Features />
         </div>
 
+
         <div>
           <h1 className="text-2xl">
             How CashCraft Works ?
@@ -40,6 +39,8 @@ export default function HomePage() {
           <p>
             Getting started with CashCraft is easy, and taking control of your finances has never been more straightforward. Here's a quick guide on how CashCraft works:
           </p>
+
+          <FunctionSection />
         </div>
       </section>
     </DotBackground>

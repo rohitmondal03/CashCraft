@@ -1,11 +1,14 @@
+import { routes } from "~/lib/route-config";
 import { DotBackground } from "~/components/backgrounds/dot-bg";
-import { StickyScrollRevealDemo } from "./_components/features";
+import { Features } from "./_components/features";
+import { TextGenerateEffect } from "~/components/ui/text-generate-effect";
+import { SparklesCore } from "~/components/ui/sparkles";
 
 
 export default function HomePage() {
   return (
     <DotBackground>
-      <section className="space-y-16 py-32">
+      <section className="space-y-16 py-24">
         <div className="space-y-5">
           <h1 className="text-6xl font-bold">
             CashCraft
@@ -26,9 +29,18 @@ export default function HomePage() {
             At CashCraft, we understand that every penny counts. Whether you're a small business owner managing expenses, or an individual striving for financial wellness, CashCraft is here for you. Our intuitive expense tracking solution is designed to:
           </p>
 
-          <StickyScrollRevealDemo />
+          <Features />
         </div>
 
+        <div>
+          <h1 className="text-2xl">
+            How CashCraft Works ?
+          </h1>
+
+          <p>
+            Getting started with CashCraft is easy, and taking control of your finances has never been more straightforward. Here's a quick guide on how CashCraft works:
+          </p>
+        </div>
       </section>
     </DotBackground>
   );

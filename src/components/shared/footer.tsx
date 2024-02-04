@@ -1,5 +1,7 @@
 export default function Footer() {
   return (
-    <footer>Footer</footer>
+    <footer>
+      <p>CashCraft</p>
+    </footer>
   )
 }

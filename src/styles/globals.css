@@ -98,5 +98,5 @@
 }
 
 p {
-  @apply mx-auto text-lg;
+  @apply mx-auto text-lg w-[60vw];
 }

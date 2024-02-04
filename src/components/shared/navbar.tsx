@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
 
-import { routes } from "~/lib/route-config";
+import { routes } from "~/lib/config/route-config";
 import { useAuth } from "~/hooks/use-auth";
 import { cn } from "~/lib/utils";
 import { buttonVariants } from "../ui/button";

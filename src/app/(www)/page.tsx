@@ -1,4 +1,4 @@
-import { routes } from "~/lib/route-config";
+import { routes } from "~/lib/config/route-config";
 import { DotBackground } from "~/components/backgrounds/dot-bg";
 import { Features } from "./_components/features";
 import { FunctionSection } from "./_components/functioning-section";

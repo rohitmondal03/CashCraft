@@ -6,14 +6,14 @@ import { type Models, ID } from "appwrite"
 
 import type { TLayout } from "types";
 import { appwriteAccount } from "~/lib/appwrite";
-import { routes } from "~/lib/route-config"
+import { routes } from "~/lib/config/route-config"
 import { useToast } from "../ui/use-toast";
 
 
 type TUserContext = {
   user: Models.Session | Models.User<Models.Preferences> | null;
   login: (email: string, password: string) => Promise<void>;
-  signup: (email: string, password: string) => Promise<void>;
+  signup: (email: string, password: string, name: string) => Promise<void>;
   logout: () => Promise<void>;
 }
 
@@ -33,9 +33,10 @@ export function AuthProvider({ children }: TLayout) {
       const loggedIn = await appwriteAccount.createEmailSession(email, password);
       setUser(loggedIn);
       push(dashboard());
+
       toast({
         title: "Successfully Logged in",
-        description: "Successfully Logged in to you account",
+        description: `Welcome back to CashCraft`,
       })
     }
     catch (error) {
@@ -50,7 +51,8 @@ export function AuthProvider({ children }: TLayout) {
   async function logout() {
     await appwriteAccount.deleteSession("current");
     setUser(null);
-    push(home())
+    push(home());
+
     toast({
       title: "Succcesfully Logged Out",
       description: "You've successfully logged out from your account"
@@ -58,10 +60,15 @@ export function AuthProvider({ children }: TLayout) {
   }
 
 
-  async function signup(email: string, password: string) {
+  async function signup(email: string, password: string, name: string) {
     try {
-      await appwriteAccount.create(ID.unique(), email, password);
+      const signedUp = await appwriteAccount.create(ID.unique(), email, password, name);
       await login(email, password);
+
+      toast({
+        title: 'Signed Up successfully !!',
+        description: `Welcome ${signedUp.name}`
+      })
     }
     catch (error) {
       toast({

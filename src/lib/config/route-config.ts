@@ -6,7 +6,7 @@ export const { routes, useSafeParams, useSafeSearchParams } = createNavigationCo
     home: defineRoute('/'),
     dashboard: defineRoute("/dashboard"),
     pricing: defineRoute("/pricing"),
-    signup: defineRoute("/auth/sign-up"),
-    login: defineRoute("/auth/log-in")
+    signup: defineRoute("/sign-up"),
+    login: defineRoute("/log-in")
   }),
 );

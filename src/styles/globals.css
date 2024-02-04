@@ -101,5 +101,5 @@ p {
 }
 
 section {
-  @apply space-y-16 py-24;
+  @apply space-y-16 py-24 px-32 mx-auto;
 }

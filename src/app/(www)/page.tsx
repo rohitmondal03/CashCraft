@@ -7,7 +7,7 @@ import { FunctionSection } from "./_components/functioning-section";
 export default function HomePage() {
   return (
     <DotBackground>
-      <section className="space-y-16 py-24">
+      <section>
         <div className="space-y-5">
           <h1 className="text-6xl font-bold">
             CashCraft

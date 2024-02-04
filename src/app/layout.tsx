@@ -2,6 +2,7 @@ import { type Metadata } from "next";
 import { Montserrat } from "next/font/google";
 
 import type { TLayout } from "types";
+import { Toaster } from "~/components/ui/toaster";
 import { AuthProvider } from "~/components/providers/auth-provider";
 import Footer from "~/components/shared/footer";
 import Navbar from "~/components/shared/navbar";
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: TLayout) {
           <Navbar />
           <main className="min-h-screen">{children}</main>
           <Footer />
+          <Toaster />
         </AuthProvider>
       </body>
     </html>

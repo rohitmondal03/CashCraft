@@ -99,3 +99,7 @@ h1 {
 p {
   @apply mx-auto w-[60vw] text-center text-lg;
 }
+
+section {
+  @apply space-y-16 py-24;
+}

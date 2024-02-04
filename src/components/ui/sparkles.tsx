@@ -7,7 +7,7 @@ import type { Container, Engine } from "@tsparticles/engine";
 import { loadSlim } from "@tsparticles/slim";
 import { motion, useAnimation } from "framer-motion";
 
-import { cn } from "~/lib/utils/cn";
+import { cn } from "~/lib/utils";
 
 
 type ParticlesProps = {

@@ -4,4 +4,7 @@ type TLayout = {
   children: ReactNode
 }
 
-type TUser = Models.Session | Models.User<Models.Preferences> | null;
+type TUser = {
+  name: string;
+  email: string;
+}

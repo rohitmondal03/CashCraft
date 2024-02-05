@@ -22,10 +22,18 @@ export function LogOutButton() {
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Are you sure you want to log out?</DialogTitle>
+          <DialogTitle className='text-xl'>
+            Are you sure you want to log out?
+          </DialogTitle>
         </DialogHeader>
         <DialogFooter>
-          <Button onClick={logout}>Yes</Button>
+          <Button
+            onClick={logout}
+            variant={'destructive'}
+            className='font-bold'
+          >
+            Yes
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

@@ -4,14 +4,14 @@ import { useRouter } from "next/navigation";
 import { createContext, useEffect, useState } from "react";
 import { type Models, ID } from "appwrite"
 
-import type { TLayout } from "types";
+import type { TLayout, TUser } from "types";
 import { appwriteAccount } from "~/lib/appwrite";
 import { routes } from "~/lib/config/route-config"
 import { useToast } from "../ui/use-toast";
 
 
 type TUserContext = {
-  user: Models.Session | Models.User<Models.Preferences> | null;
+  user: (Models.Session | Models.User<Models.Preferences>) & Partial<TUser> | null;
   login: (email: string, password: string) => Promise<void>;
   signup: (email: string, password: string, name: string) => Promise<void>;
   logout: () => Promise<void>;
@@ -22,7 +22,9 @@ export const UserContext = createContext<TUserContext | undefined>(undefined);
 
 
 export function AuthProvider({ children }: TLayout) {
-  const [user, setUser] = useState<Models.Session | Models.User<Models.Preferences> | null>(null);
+  const [user, setUser] = useState<
+    (Models.Session | Models.User<Models.Preferences>) & Partial<TUser> | null
+  >(null);
   const { push } = useRouter();
   const { dashboard, home } = routes;
   const { toast } = useToast();

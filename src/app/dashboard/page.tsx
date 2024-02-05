@@ -2,8 +2,11 @@
 
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
+
+import { env } from "~/env";
 import { useAuth } from "~/hooks/use-auth";
 import { routes } from "~/lib/config/route-config";
+import { appwriteDatabase } from "~/lib/appwrite";
 
 
 export default function DashboardPage() {
@@ -18,7 +21,7 @@ export default function DashboardPage() {
     }
   }, [user])
 
-
+  
   return (
     <section>
       dashboard page

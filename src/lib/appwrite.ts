@@ -1,4 +1,4 @@
-import { Account, Client, Storage } from "appwrite";
+import { Account, Client, Databases, Storage } from "appwrite";
 
 import { env } from "~/env";
 
@@ -9,5 +9,5 @@ export const appwriteClient = new Client()
 
 
 export const appwriteAccount= new Account(appwriteClient);
-
 export const appwriteStorage= new Storage(appwriteClient);
+export const appwriteDatabase= new Databases(appwriteClient);

@@ -1,5 +1,5 @@
 export default function PricingPage() {
   return (
-    <div>PricingPage</div>
+    <section>PricingPage</section>
   )
 }

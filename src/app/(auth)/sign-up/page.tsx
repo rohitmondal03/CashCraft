@@ -30,9 +30,7 @@ export default function SignUpPage() {
       <div className={classNames({
         "space-y-4": true,
       })}>
-        <h1 className={classNames({
-          "font-bold text-4xl": true,
-        })}>
+        <h1 className="page_heading">
           Join CashCraft Today
         </h1>
 

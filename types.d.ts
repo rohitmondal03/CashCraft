@@ -1,7 +1,8 @@
 import { type ReactNode } from "react"
 import { z } from "zod";
 
-import { newBillSchema } from "~/schemas/new-bill-schema";
+import type { billSchema } from "~/schemas/bill-schema";
+import type { spendingSchema } from "~/schemas/spending-schema";
 
 
 type TLayout = {
@@ -13,8 +14,6 @@ type TUser = {
   email: string;
 }
 
-type TBill = {
-  title: string;
-  amount: number;
-  recurrance: z.infer<typeof newBillSchema>["recurrance"]
-}
+type TBill= z.infer<typeof billSchema>;
+
+type TSpending = z.infer<typeof spendingSchema>

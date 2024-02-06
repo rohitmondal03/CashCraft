@@ -1,16 +1,16 @@
 import { z } from "zod"
 
 
-export const newBillSchema = z.object({
+export const billSchema = z.object({
   title: z
     .string()
     .min(1, {
-      message: "Title should not be empty.",
+      message: "Title cannot be empty.",
     }),
   amount: z
-    .number()
+    .string()
     .min(0, {
-      message: "Amount must be a positive number or zero.",
+      message: "Amount must be a positive number.",
     }),
   recurrance: z.enum([
     "ONE-TIME",

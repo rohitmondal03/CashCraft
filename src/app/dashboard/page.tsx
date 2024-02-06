@@ -24,47 +24,13 @@ export default function DashboardPage() {
   }, [user])
 
 
-  // useEffect(() => {
-  //   async function getDocs() {
-  //     const doc = await appwriteDatabase.listDocuments(env.NEXT_PUBLIC_APPWRITE_DB, env.NEXT_PUBLIC_APPWRITE_COLLECTION)
-
-  //     console.log(doc.documents.filter((doc) => doc.userId === user?.$id).map((doc) => doc.title));
-  //   }
-
-  //   getDocs()
-  // }, [])
-
-
-  // async function addDocs(e: FormEvent<HTMLFormElement>) {
-  //   e.preventDefault();
-
-  //   try {
-  //     await appwriteDatabase.createDocument(
-  //       env.NEXT_PUBLIC_APPWRITE_DB,
-  //       env.NEXT_PUBLIC_APPWRITE_COLLECTION,
-  //       ID.unique(),
-  //       {
-  //         title: title,
-  //         createdAt: new Date(),
-  //         userId: user?.$id,
-  //       }
-  //     )
-
-  //     settitle("")
-  //   } catch (error) {
-  //     console.log(error)
-  //   }
-  // }
-
 
   return (
     <section className="mx-auto">
       <div className={classNames({
         "space-y-6": true,
       })}>
-        <h1 className={classNames({
-          "font-bold text-4xl": true,
-        })}>
+        <h1 className="page_heading">
           Welcome to Your CashCraft Dashboard,
           <br />
           <span className="underline text-rose-500">{user?.name}</span>

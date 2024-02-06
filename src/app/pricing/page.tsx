@@ -1,5 +1,7 @@
 export default function PricingPage() {
   return (
-    <section>PricingPage</section>
+    <section>
+      PricingPage
+    </section>
   )
 }

@@ -1,14 +1,14 @@
-import { useState } from "react"
+import { useRouter } from "next/navigation"
 import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
-import type { TBill } from "types"
 import { useAuth } from "~/hooks/use-auth"
-import { newBillSchema } from "~/schemas/new-bill-schema"
+import { billSchema } from "~/schemas/bill-schema"
 import { submitNewBill } from "~/lib/functions/new-bill-submit"
 import { Input } from "~/components/ui/input"
 import { Button } from "~/components/ui/button"
+import { useToast } from "~/components/ui/use-toast"
 import {
   Select,
   SelectContent,
@@ -24,22 +24,40 @@ import {
   FormLabel,
   FormControl,
 } from "~/components/ui/form"
+import { routes } from "~/lib/config/route-config"
 
 
 export default function NewBillForm() {
+  const { push } = useRouter();
   const { user } = useAuth();
-  const form = useForm<z.infer<typeof newBillSchema>>({
-    resolver: zodResolver(newBillSchema),
+  const { toast } = useToast();
+  const { dashboard } = routes;
+  const form = useForm<z.infer<typeof billSchema>>({
+    resolver: zodResolver(billSchema),
     defaultValues: {
       title: "",
-      amount: 100,
+      amount: "100",
       recurrance: "MONTHLY",
     }
   })
 
 
-  function submitBill() {
-    submitNewBill(form.getValues(), String(user?.$id))
+  const submitBill = () => {
+    try {
+      submitNewBill(form.getValues(), String(user?.$id))
+      push(dashboard());
+      toast({
+        title: "New bill added successfully to you list !",
+      })
+    }
+    catch (error) {
+      toast({
+        title: "Error occured while adding bill.",
+        description: (
+          <pre>{error as string}</pre>
+        ),
+      })
+    }
   }
 
 
@@ -60,6 +78,7 @@ export default function NewBillForm() {
               <FormControl>
                 <Input
                   placeholder="Enter title..."
+                  autoComplete="off"
                   {...field}
                 />
               </FormControl>
@@ -78,7 +97,9 @@ export default function NewBillForm() {
               </FormLabel>
               <FormControl>
                 <Input
+                  type="number"
                   placeholder="Enter amount..."
+                  autoComplete="off"
                   {...field}
                 />
               </FormControl>
@@ -122,6 +143,6 @@ export default function NewBillForm() {
           Submit
         </Button>
       </Form>
-    </form>
+    </form >
   )
 }

@@ -7,7 +7,7 @@ import { appwriteDatabase } from "../appwrite";
 
 export async function submitNewBill(val: TBill, userId: string) {
   try {
-    const data = await appwriteDatabase.createDocument(
+    await appwriteDatabase.createDocument(
       env.NEXT_PUBLIC_APPWRITE_DB,
       env.NEXT_PUBLIC_APPWRITE_BILL_COLLECTION,
       ID.unique(),
@@ -16,10 +16,8 @@ export async function submitNewBill(val: TBill, userId: string) {
         userId: userId,
       }
     )
-
-    console.log(data)
   }
   catch (error) {
-    console.log(error)
+    console.log(error);
   }
 }

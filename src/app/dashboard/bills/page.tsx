@@ -37,7 +37,7 @@ export default function BillsPage() {
   return (
     <section className="mx-auto">
       <div className="space-y-4">
-        <h1 className="text-4xl font-bold">
+        <h1 className="page_heading">
           Manage Your Bills with Ease
         </h1>
 
@@ -52,10 +52,10 @@ export default function BillsPage() {
       ) :
         billList?.length > 0 ?
           billList?.map((doc, idx) => (
-            <>
+            <div key={idx}>
               <p>{idx + 1 + "." + " "}{doc.title}</p>
               <p>{doc.bill}</p>
-            </>
+            </div>
           ))
           :
           <p>No Bill Found!</p>

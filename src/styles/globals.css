@@ -103,3 +103,7 @@ p {
 section {
   @apply space-y-16 py-24 px-32 mx-auto;
 }
+
+.page_heading {
+  @apply text-4xl font-bold;
+}

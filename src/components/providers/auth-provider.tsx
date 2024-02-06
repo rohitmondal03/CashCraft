@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { createContext, useEffect, useState } from "react";
 import { type Models, ID } from "appwrite"
 
-import type { TLayout, TUser } from "types";
+import type { TBill, TLayout, TUser } from "types";
 import { appwriteAccount } from "~/lib/appwrite";
 import { routes } from "~/lib/config/route-config"
 import { useToast } from "../ui/use-toast";

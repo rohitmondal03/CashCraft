@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const spendingSchema= z.object({
+export const spendingSchema = z.object({
   title: z
     .string()
     .min(1, {
@@ -11,6 +11,6 @@ export const spendingSchema= z.object({
     .min(0, {
       message: "Amount must be a positive number.",
     }),
-  tags: z
-    .array(z.string())
+  category: z
+    .enum(["SHOPPING", "FOOD", "CAB", "FUEL", "HOUSE_RENT", "ELECTRICITY", "BILLS", "PERSONAL_CARE", "ENTERTAINMENT", "HEALTHCARE", "TRAVEL", "EDUCATION", "DEBTS_LOANS", "SAVINGS", "INVESTMENT", "GIFT", "DONATION", "PETS", "OTHER"])
 })

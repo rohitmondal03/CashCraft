@@ -24,7 +24,6 @@ export default function DashboardPage() {
   }, [user])
 
 
-
   return (
     <section className="mx-auto">
       <div className={classNames({
@@ -54,7 +53,7 @@ export default function DashboardPage() {
             size: "lg"
           }))}
         >
-          Add Spending
+          Your Spending
         </Link>
 
         <Link
@@ -64,7 +63,7 @@ export default function DashboardPage() {
             size: "lg"
           }))}
         >
-          Add Bills
+          Your Bills
         </Link>
 
         <Link

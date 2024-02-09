@@ -1,5 +1,11 @@
+"use client"
+
+import { useRouter } from 'next/navigation'
+import { useEffect } from 'react'
 import classNames from 'classnames'
 
+import { routes } from '~/lib/config/route-config'
+import { useAuth } from '~/hooks/use-auth'
 import NewSpendingForm from './_components/new-spending-form'
 import { Button } from '~/components/ui/button'
 import {
@@ -10,6 +16,18 @@ import {
 
 
 export default function SpendingPage() {
+  const { user } = useAuth();
+  const { push } = useRouter();
+  const { login } = routes;
+
+  // Redirect to Login page if not logged in.
+  useEffect(() => {
+    if (!user) {
+      push(login())
+    }
+  }, [])
+
+  
   return (
     <section>
       <div className={classNames({

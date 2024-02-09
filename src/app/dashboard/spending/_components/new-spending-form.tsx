@@ -4,7 +4,6 @@ import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
-import { useAuth } from "~/hooks/use-auth"
 import { spendingSchema } from "~/schemas/spending-schema"
 import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
@@ -30,7 +29,9 @@ export default function NewSpendingForm() {
 
 
   return (
-    <form>
+    <form
+      className="space-y-6"
+    >
       <Form {...form}>
         <FormField
           control={form.control}
@@ -38,7 +39,7 @@ export default function NewSpendingForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>
-                Enter title...
+                Title
               </FormLabel>
               <FormControl>
                 <Input
@@ -54,11 +55,11 @@ export default function NewSpendingForm() {
 
         <FormField
           control={form.control}
-          name="title"
+          name="amount"
           render={({ field }) => (
             <FormItem>
               <FormLabel>
-                Enter amount...
+                Bill Amount
               </FormLabel>
               <FormControl>
                 <Input
@@ -75,12 +76,12 @@ export default function NewSpendingForm() {
 
         <FormField
           control={form.control}
-          name="title"
+          name="category"
           render={({ field }) => (
             <>
               <FormItem>
                 <FormLabel>
-                  Enter amount...
+                  Select category of bill payment
                 </FormLabel>
                 <FormControl>
                   <Input

@@ -3,18 +3,26 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import classNames from "classnames";
+import { Goal, User2, ArrowDown, List } from "lucide-react"
 
+import { cn } from "~/lib/utils";
 import { routes } from "~/lib/config/route-config";
 import { useAuth } from "~/hooks/use-auth";
-import { cn } from "~/lib/utils";
-import { buttonVariants } from "../ui/button";
 import { LogOutButton } from "../buttons/sign-out-button";
+import { Button, buttonVariants } from "../ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+} from "../ui/dropdown-menu"
 
 
 export default function Navbar() {
   const pathName = usePathname();
-  const { home, dashboard, login, signup, pricing } = routes;
   const { user } = useAuth();
+  const { home, dashboard, login, signup, pricing, bills, goals, spending } = routes;
+
 
   return (
     <nav className={classNames({
@@ -67,14 +75,49 @@ export default function Navbar() {
           </>
         ) : (
           <>
-            <Link
-              href={dashboard()}
-              className={cn(buttonVariants({
-                variant: pathName === dashboard() ? "secondary" : "link"
-              }))}
-            >
-              Dashboard
-            </Link>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant={pathName.startsWith(dashboard()) ? "secondary" : "link"}>
+                  Dashboard <ArrowDown className="ml-1 scale-75" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem>
+                  <Link
+                    href={dashboard()}
+                    className="flex items-center justify-center"
+                  >
+                    <User2 className="mr-2" /> View Dashboard
+                  </Link>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem>
+                  <Link
+                    href={bills()}
+                    className="flex items-center justify-center"
+                  >
+                    <List className="mr-2" /> Bills
+                  </Link>
+                </DropdownMenuItem>
+
+                <DropdownMenuItem>
+                  <Link
+                    href={goals()}
+                    className="flex items-center justify-center"
+                  >
+                    <Goal className="mr-2" /> Financal Goals
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <Link
+                    href={spending()}
+                    className="flex items-center justify-center"
+                  >
+                    <User2 className="mr-2" /> Spending
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <LogOutButton />
           </>

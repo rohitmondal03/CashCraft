@@ -42,6 +42,9 @@ export default function NewBillForm() {
   })
 
 
+  const billsRecurranceTypeList = billSchema._def.shape().recurrance._def.values;
+
+
   const submitBill = () => {
     try {
       submitNewBill(form.getValues(), String(user?.$id))
@@ -125,12 +128,14 @@ export default function NewBillForm() {
                     <SelectValue placeholder="Select recurrance type" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="ONE-TIME">One Time</SelectItem>
-                    <SelectItem value="WEEKLY">Weekly</SelectItem>
-                    <SelectItem value="MONTHLY">Monthly</SelectItem>
-                    <SelectItem value="BI-MONTHLY">Bi-Monthly</SelectItem>
-                    <SelectItem value="TRI-MONTHLY">Tri-Monthly</SelectItem>
-                    <SelectItem value="YEARLY">Yearly</SelectItem>
+                    {billsRecurranceTypeList.map(item => (
+                      <SelectItem
+                        key={item}
+                        value={item}
+                      >
+                        {item}
+                      </SelectItem>
+                    ))}
                   </SelectContent>
                 </Select>
               </FormControl>

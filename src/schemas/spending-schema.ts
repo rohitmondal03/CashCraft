@@ -6,9 +6,12 @@ export const spendingSchema = z.object({
     .min(1, {
       message: "Title cannot be empty.",
     }),
+  description: z
+    .string()
+    .optional(),
   amount: z
     .string()
-    .min(0, {
+    .min(1, {
       message: "Amount must be a positive number.",
     }),
   category: z

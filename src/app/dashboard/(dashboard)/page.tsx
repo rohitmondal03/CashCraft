@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 import classNames from "classnames";
+import { ArrowBigLeft, ArrowBigRight } from "lucide-react"
 
 import { cn } from "~/lib/utils";
 import { useAuth } from "~/hooks/use-auth";
@@ -49,7 +50,7 @@ export default function DashboardPage() {
         <Link
           href={spending()}
           className={cn(buttonVariants({
-            variant: "default",
+            variant: "secondary",
             size: "lg"
           }))}
         >
@@ -59,7 +60,7 @@ export default function DashboardPage() {
         <Link
           href={bills()}
           className={cn(buttonVariants({
-            variant: "default",
+            variant: "secondary",
             size: "lg"
           }))}
         >
@@ -69,7 +70,7 @@ export default function DashboardPage() {
         <Link
           href={goals()}
           className={cn(buttonVariants({
-            variant: "default",
+            variant: "secondary",
             size: "lg"
           }))}
         >

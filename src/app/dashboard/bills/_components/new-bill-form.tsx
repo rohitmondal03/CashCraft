@@ -42,6 +42,7 @@ export default function NewBillForm() {
   })
 
 
+  // Recurrance bill type list 
   const billsRecurranceTypeList = billSchema._def.shape().recurrance._def.values;
 
 
@@ -148,6 +149,6 @@ export default function NewBillForm() {
           Submit
         </Button>
       </Form>
-    </form >
+    </form>
   )
 }

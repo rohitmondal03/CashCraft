@@ -104,7 +104,7 @@ export default function Navbar() {
                       href={dashboard()}
                       className="flex items-center justify-center"
                     >
-                      <User2 className="mr-2" /> View Dashboard
+                      <User2 className="mr-2 scale-75" /> View Dashboard
                     </Link>
                   </DropdownMenuItem>
 
@@ -113,7 +113,7 @@ export default function Navbar() {
                       href={bills()}
                       className="flex items-center justify-center"
                     >
-                      <List className="mr-2" /> Bills
+                      <List className="mr-2 scale-75" /> Bills
                     </Link>
                   </DropdownMenuItem>
 
@@ -122,7 +122,7 @@ export default function Navbar() {
                       href={goals()}
                       className="flex items-center justify-center"
                     >
-                      <Goal className="mr-2" /> Financal Goals
+                      <Goal className="mr-2 scale-75" /> Financal Goals
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem>
@@ -130,7 +130,7 @@ export default function Navbar() {
                       href={spending()}
                       className="flex items-center justify-center"
                     >
-                      <IndianRupee className="mr-2" /> Spending
+                      <IndianRupee className="mr-2 scale-75" /> Spending
                     </Link>
                   </DropdownMenuItem>
                 </DropdownMenuGroup>

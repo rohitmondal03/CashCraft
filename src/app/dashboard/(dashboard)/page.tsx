@@ -4,12 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation"
 import { useEffect } from "react"
 import classNames from "classnames";
-import { ArrowBigLeft, ArrowBigRight } from "lucide-react"
 
 import { cn } from "~/lib/utils";
 import { useAuth } from "~/hooks/use-auth";
 import { routes } from "~/lib/config/route-config";
+import UpdateUserDetailsForm from "./_components/user-details-form";
 import { buttonVariants } from "~/components/ui/button";
+import { Alert, AlertDescription, AlertTitle } from "~/components/ui/alert";
+import { MessageCircleWarning } from "lucide-react";
 
 
 export default function DashboardPage() {
@@ -41,6 +43,25 @@ export default function DashboardPage() {
         })}>
           Here's a snapshot of your financial world at a glance. Take control, set goals, and let CashCraft guide you toward financial success.
         </p>
+      </div>
+
+
+      <div className={classNames({
+        "space-y-5": true,
+        "border-2 border-gray-500 rounded-lg": true,
+        "p-5": true,
+      })}>
+        <Alert className="text-red-500">
+          <MessageCircleWarning color="red" className="h-4 w-4" />
+          <AlertTitle>
+            Important Information
+          </AlertTitle>
+          <AlertDescription>
+            Change you information carefully !!
+          </AlertDescription>
+        </Alert>
+
+        <UpdateUserDetailsForm />
       </div>
 
 

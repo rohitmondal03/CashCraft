@@ -7,6 +7,7 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 
 import { useAuth } from "~/hooks/use-auth"
+import { routes } from "~/lib/config/route-config"
 import { updateUserDetailsSchema } from "~/schemas/auth-schemas"
 import { updateUserDetails } from "~/lib/functions/user-details-update"
 import { Button } from "~/components/ui/button"
@@ -20,7 +21,6 @@ import {
   FormField,
   FormControl
 } from "~/components/ui/form"
-import { routes } from "~/lib/config/route-config"
 
 
 export default function UpdateUserDetailsForm() {
@@ -31,8 +31,8 @@ export default function UpdateUserDetailsForm() {
   const form = useForm<z.infer<typeof updateUserDetailsSchema>>({
     resolver: zodResolver(updateUserDetailsSchema),
     defaultValues: {
-      email: user?.email,
-      name: user?.name,
+      email: "",
+      name: "",
       password: "",
       confirmPassword: ""
     }

@@ -7,7 +7,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 
 import { routes } from "~/lib/config/route-config"
 import { useAuth } from "~/hooks/use-auth"
-import { spendingSchema } from "~/schemas/spending-schema"
+import { spendingSchema } from "~/lib/validators/spending-schema"
 import { submitNewSpending } from "~/lib/functions/new-spending-submit"
 import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"

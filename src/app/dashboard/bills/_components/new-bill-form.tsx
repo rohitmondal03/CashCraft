@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import { useAuth } from "~/hooks/use-auth"
-import { billSchema } from "~/schemas/bill-schema"
+import { billSchema } from "~/lib/validators/bill-schema"
 import { routes } from "~/lib/config/route-config"
 import { submitNewBill } from "~/lib/functions/new-bill-submit"
 import { Input } from "~/components/ui/input"

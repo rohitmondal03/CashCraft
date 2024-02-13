@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import classNames from "classnames";
 
 import { useAuth } from "~/hooks/use-auth";
-import { signupSchema } from "~/schemas/auth-schemas";
+import { signupSchema } from "~/lib/validators/auth-schemas";
 import { Input } from "~/components/ui/input";
 import { Button } from "~/components/ui/button";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '~/components/ui/form';

@@ -8,7 +8,7 @@ import { z } from "zod"
 
 import { useAuth } from "~/hooks/use-auth"
 import { routes } from "~/lib/config/route-config"
-import { updateUserDetailsSchema } from "~/schemas/auth-schemas"
+import { updateUserDetailsSchema } from "~/lib/validators/auth-schemas"
 import { updateUserDetails } from "~/lib/functions/user-details-update"
 import { Button } from "~/components/ui/button"
 import { Input } from "~/components/ui/input"
